@@ -1,0 +1,136 @@
+
+
+
+Assign:
+
+1. script to find biggest of 3 no's
+
+#!/bin/bash
+#set -x
+echo "enter 1st number"
+read num1
+echo "enter 2nd  number"
+read num2
+echo "enter 3rd  number"
+read num3
+
+if [[ $num1 -gt $num2 && $num1 -gt $num3 ]]
+then
+echo "$num1 is greater"
+elif [[ $num2 -gt $num1 && $num2 -gt $num3 ]]
+then
+echo " $num2 is greater"
+else
+echo "$num3 is greater"
+fi
+
+
+2. script to add sub multiply and dev of two no's
+
+#!/bin/bash
+if [ $# -ne 2 ]
+then
+echo "Enter valid input arguments"
+exit
+fi
+num1=$1
+num2=$2
+addition=$((num1 + num2))
+multiplication=$((num1*num2))
+if [ $num1 -gt $num2]
+then
+Sub=$((num1-num2))
+div=$((num1/num2))
+else
+Sub=$((num2-num1))
+div=$((num2/num1))
+fi
+echo "The sum of $num1 + $num2 =$addition"
+echo "The multiple of $num1 * $num2 = $multiplication"
+echo "The sub of $num1 - $num2 = $Sub"
+echo "The Division of $num1 / $num2 = $div"
+
+
+
+logical operators
+
+	AND
+	
+	A	B 		o/p
+	0	0		1
+	0	1		0
+	1	0		0
+	1	1		1
+
+
+
+	OR
+	NOT
+
+set -x --> debug the shell script
+
+***********check the given name is file/directory/doesn't exist: ***********
+
+#!/bin/bash
+echo "Enter the name to check: "
+read name
+
+if [ -f $name ]
+then
+echo "The given name is a file"
+elif [ -d $name ]
+then
+echo "The given name is a directory"
+else
+echo "The given name doesn't exist"
+fi
+
+
+*********** list all the files which is having a pattern of linux ***********
+
+#!/bin/bash
+set -x
+files=`grep -ilr "linux" *` 
+
+if [ $? -ne 0 ]
+then 
+echo "Pattern not found in any of the files"
+else
+echo "The pattern found in below listed files:: "
+echo "$files"
+fi
+
+******** to add given set of numbers ****************
+
+num="2 4 6 8 10"
+
+#!/bin/bash
+num="2 4 6 8 10"
+add=0
+for i in $num
+do
+	add=`expr $i + $add`
+done
+echo "Sum of $num is $add"
+
+
+assign: 
+	1. to add given set of numbers in array from terminal i/p
+
+	2. if its a file diplay the content check the file size, if its a directory 
+		list only files
+
+	3. factorial of a given number
+
+	4. count the no of words in each line from a given file
+
+
+
+
+
+
+
+
+
+
+
